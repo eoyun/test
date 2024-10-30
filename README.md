@@ -5,7 +5,7 @@ daq operation
     cd test/TB_daq 
     ./run_all.sh (config) (number of events)`
 
-config file 
+### Config file
 
 TCB board
 
