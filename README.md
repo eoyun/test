@@ -17,11 +17,16 @@ TCB board
     mthr_tcb 1
     prescale 1
 
-cw_tcb : coincidence width in TCB board
+cw_tcb : coincidence width in TCB board (clock = 1 / 90MHz)
+
 ptrigger_interval : time interval of pedestal trigger (ms)
+
 trig_enable : select the trigger ( 1: self trigger, 2: pedestal trigger, 4: software trigger, 8: external trigger)
+
 mthr_tcb : multiplicity threshold in TCB board
+
 prescale : prescale of waveform mode
+
 
 DAQ board
 
@@ -43,6 +48,30 @@ DAQ board
     4095 4095 4095 4095 4095 4095 4095 4095
     4095 4095 4095 4095 4095 4095 4095 4095
     4095 4095 4095 4095 4095 4095 4095 4095
+
+cw_daq : coincidence width in DAQ board (clock = 1 / 90MHz)
+
+hv : high voltage of SiPM (0 - 45 V)
+
+mthr_daq : multiplicity threshold in DAQ board
+
+trig_latancy : trigger latancy, the time waiting flag of TCB board after stopping DRS4 chip in DAQ board (clock = 1 / 90MHz)
+
+trig_dly : trigger delay (clock = 1 / 90MHz)
+
+down_sampling : down sampling of DRS4 chip (0: 5 GHz, 1: 2.5 GHz, 2: 1.25GHz)
+
+pulse_width : In fastmode, integral width (bin)
+
+risetime : In fastmode, risetime of signal (bin)
+
+fraction : In fastmode, constant fraction (0.01 - 0.99)
+
+peak_srch_dly : In fastmode, start point of searching the peak (bin)
+
+peak_srch_width : In fastmode, range of searching the peak (bin)
+
+thr : threshold of self trigger (0.5 mV)
 
 ## programmer
 daq firmware upgrade
