@@ -1,8 +1,29 @@
 # notice
+Install the libusb library
+
+Set the proper library directroy in `notice_env.sh` according OS
+
+# src
+comfile the library code
+
+    cd src/cal_daq/cal_daq
+    make clean
+    make install
+    cd ../cal_tcb
+    make clean
+    make install
+
 ## test
+comfile the operation code (change the data directory properly)
+
+    cd test/TB_daq/src
+    make -f Makefile_set_run_number
+    make -f Makefile_set_bymid_mktxt
+    make -f Makefile_get_evt_dir_log
+    make -f Makefile_run_evt_mktxt
+
 daq operation
 
-    cd test/TB_daq 
     ./run_all.sh (config) (number of events)`
 
 ### Config file
@@ -75,3 +96,22 @@ thr : threshold of self trigger (0.5 mV)
 
 ## programmer
 daq firmware upgrade
+
+### compile
+Also change the directory of libusb on make file
+
+    make -f Makefile_daq
+    make -f Makefile_tcb
+
+### check firmware
+
+    ./programmer_cal_tcb.exe -dev all -info
+    ./programmer_cal_daq.exe -dev all -info
+
+### calibration
+calibration the DRS4 chip
+
+    make -f Makefile_cal
+    ./calibration.exe (mid)
+    ./programmer_cal_daq.exe -dev (usb number) -lut calLUT_(mid).dat
+
